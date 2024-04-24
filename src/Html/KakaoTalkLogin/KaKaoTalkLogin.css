@@ -1,0 +1,109 @@
+.welcome-header {
+    margin: 90px; /* 마진이란 요소 바깥 네 방향의 여백을 설정하는 css 속성 */
+    text-align: center; /* 텍스트 얼라인은 오직 텍스트 요소에 적용할수 있는 정렬 속성 */
+    display: flex;
+    /* display : display는 container 와 item 으로 이루어지는데, item을 감싸는 container 에
+                                들어가는 속성과 item에 들어가는 속성이 따로 존재한다.
+                               flex 는 레이아웃을 더 쉽게 잡을수 있도록 도와준다?? 아직 이해가 잘안감
+                       flex는 기본 주축이 row 로 되어있기 때문에 가로정렬이 된다 */
+    flex-direction: column;
+    /* flex-direction 플렉스 디렉션은 주축을 설정한다는 의미
+                                column은 수직을 주축으로 하며, item들이 수직정렬된다. */
+    align-items: center;  /*교차점에 대한 속성을 나타낸다. 자식요소를 교차축의 중앙에 정렬한다. */
+}
+.welcome-header_title{
+    margin-bottom: 20px; /* margin 아랫쪽인 bottom 에 20px 만큼 적용 */
+    font-size: 25px; /* welcome-header_title 클래스 안에 폰트 사이즈를 25px 로 적용 */
+}
+#login-form{
+    width: 550px;
+    height: 490px;
+    display: flex;
+    flex-direction: column;
+    margin: auto; /* 2개의 margin 의 속성값을 가질때는 top 와 bottom, right 와 left 순으로 설정
+                             3개의 margin 속성값을 가질떄는 top,right left bottom 순으로 설정
+                             4개의 margin 속성값을 가질때는 top,right,bottom,left 순으로 설정*/
+
+
+
+}
+#login-form input{
+    border: none; /* border : border이란 (테두리를 뜻 한다)0 은 border-wdith가 0으로 설정되지만,
+                                  border: none은 border-width가 medium으로 설정 */
+    padding: 10px 0px; /* padding이란 콘텐츠와 테두리 사이의 여백공간을 말한다. */
+    font-size: 18px;
+    border-bottom: 1px solid rgba(0,0,0,0.2); /* 아랫쪽 테두리에 1px 크기의 solid 라는 선으로 긋는것
+                                                    rgba 는 r은 빨강 g는 녹색 b는 파란색의 약어이고 a는 투명도를 뜻한다. */
+    margin-bottom: 25px; /* 마진 바텀 즉 아랫쪽 여백에 25px 만큼 여백을 줌 */
+    transition: border-color 0.3s ease-in-out; /* transition속성은 웹요소의 스타일 변화를 부드럽게 전환하는 효과를 제공한다.
+                                                      즉, 웹 요소의 부드러운 애니메이션 효과를 불러일으킴
+                                                      테두리색에 트랜지션 효과 추가*/
+}
+#login-form input:not([type="submit"]) {
+    /* input:not([type="submit"]) 은 css에서 매우 유용한 선택자 이다.
+                                                  input: 이 선택자는 html<input> 요소를 대상으로 지정
+                                                  :not 는 괄호 안의 조건을 제외한 모든 요소를 선택한다
+                                                  즉 이경우 "submit" 타입이 아닌 모든 input 요소를 선택
+                                                  [type="submit"]: 이 attribute 선택자는
+                                                  type 속성이 "submit"인 <input> 요소를 선택합니다.
+                                                  따라서 따라서 input:not([type="submit"]) 는 "submit" 타입이
+                                                  아닌 모든 <input> 요소를 선택하는 CSS 선택자이다.
+                                                  이를 통해 submit 버튼을 제외한 모든 입력 필드에 스타일을 적용할 수 있습니다. */
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2); /* 아랫쪽 테두리에 1px 크기의 solid 라는 선으로 긋는것
+                                                    rgba 는 r은 빨강 g는 녹색 b는 파란색의 약어이고 a는 투명도를 뜻한다. */
+
+    transition: border-color 0.3s ease-in-out; /* transition속성은 웹요소의 스타일 변화를 부드럽게 전환하는 효과를 제공한다.
+                                                      즉, 웹 요소의 부드러운 애니메이션 효과를 불러일으킴
+                                                      테두리색에 트랜지션 효과 추가*/
+}
+#login-form input::placeholder { /* Placeholder 는 사용자를 위해, 입력폼에 들어가야 할 값을 미리 알려주는 역할을 한다. */
+    color: rgba(0, 0, 0, 0.4); /* 색상은 rba 형식이고 a는 투명도를 뜻한다. */
+}
+input:focus{
+    outline: none; /* 포커스 된 테두리에 아웃라인을 보이지 않도록 한다 */
+}
+#login-form input:focus{
+    border-color:yellow; /* 포커싱이 되었을때 테두리 색이 yellow 로 변경 */
+}
+#login-form input[type="submit"]{ /* login 폼 안에 submit 타입에 적용 */
+    background-color:yellow; /* 배경색 색상을 yellow 로 지정*/
+    cursor: pointer; /* 마우스 커서가 submit 타입 창에 올라갔을때 pointer:손가락 모양(클릭 가능한 버튼)으로 바뀐다 */
+    padding:15px 0px; /* padding 은 컨텐츠 안쪽의 여백 */
+    border-radius: 5px; /* border-radius 속성은 요소 테두리 경계의 꼭짓점을 둥글게 만든다. */
+    border-color:yellow; /* 테두리 색상을 yellow 로 바꾼다 */
+}
+#login-form a{
+    text-align: center; /* 텍스트의 정렬방향 */
+    text-decoration: none; /* text-decoration 은 밑줄, 텍스트 그림자 및 강조 표시 등 텍스트 장식에
+                                  관련된 기능을 정의하는 css 모듈 */
+    color: inherit; /* inherit 는 css에서 상속을 뜻 한다. 하위 엘리먼트에서 어떤 css 속성을 명시하지 않은경우,
+                           기본적으로 상위 엘리먼트에 적용된 스타일이 하위 엘리먼트에도 적용되는것을 뜻한다. */
+    font-size: 13px; /* 폰트 사이즈를 13px 로 지정 */
+}
+.status-bar{
+    display: flex;
+    justify-content: center; /* 콘텐츠 항목 사이와 주위에 공간을 분배하는 방법을 정의한다 */
+    padding: 5px 3px; /* padding이란 콘텐츠와 테두리 사이의 여백공간을 말한다. */
+}
+.status-bar_column{
+    width:33% /* width 속성은 html 요소의 너비를 제어하기 위해서 사용된다. */
+}
+.status-bar_column:first-child span{ /* first-child는 부모 요소의 첫 번째 자식 요소를 선택하는 CSS 의사 클래스다.
+                                            즉, 이 선택자는 부모 요소의 첫 번째 자식 요소 중에서 span 태그를 가진 요소를 선택하여
+                                            스타일을 적용하는 것이다. */
+    margin-right: 5px; /* margin 오른쪽인 right 에 20px 만큼 적용 */
+}
+.status-bar_column:nth-child(2){ /* 부모 요소의 n번째 자식 요소를 의미 한다. */
+
+    display: flex;
+    justify-content: center;
+}
+.status-bar_column:last-child{ /* 부모 요소의 마지막 자식 요소를 의미 한다. */
+    display: flex;
+    justify-content: flex-end; /*요소들을 컨테이너 우측으로 정렬 */
+    align-items: center; /* 세로축을 기준으로 정렬하게 된다 center 에 위치는 컨테이너의 세로축의 중앙으로 정렬한다. */
+}
+.status-bar_column.fa-battery-full{
+    margin: 0px 5px;
+}
